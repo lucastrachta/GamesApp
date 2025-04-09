@@ -39,12 +39,38 @@
     <div class="row">
 
         <div class="col-12 col-lg-4">
-        <h2>FORMULARIO</h2>
+        <h2>FORMULARIO</h2><br> <br> <br>
         </div>
 
         <div class="col-12 col-lg-8">
+            <h2>JUEGOS</h2>
+                <div class="p-3 border border-info-subtle">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name" class="form-label">Buscar</label>
+                            <input  type="text" 
+                                    class="form-control" 
+                                    id="name" 
+                                    placeholder="Nombre del juego" 
+                                    
+                            />
+                        </div>
+                    </div>
+                </div>
             <!-- <h2>TABLA DE JUEGOS Y FILTROS</h2> -->
+            <div class="col">
+                <label for="genre" class="form-label">Ordenar</label>
+                <div>
+                    <button class="btn btn-sm btn-primary" title="Ordenar precio ascendente">
+                        <i class="fa-solid fa-caret-up"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary" title="Ordenar precio descendente">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+            </div>
      </div>
+
 <br> <br>
             <table class="table table-dark table-striped">
                 <thead>
@@ -59,7 +85,34 @@
                 </thead>
                 
                 <tbody id="table-body">
-                       
+                    <!-- `<tr>
+   
+                        <td class="image-cell">   
+                            <img src= " ${juego.image}" alt="">
+                        </td>
+                        <td class="id-cell"> ${juego.id}  </td>
+                        <td class="name-cell"> ${juego.name}</td>
+                        <td class="category-cell"> ${juego.category}</td>
+                        <td class="price-cell"> $ ${juego.price}</td>
+                        <td class="action-cell">
+                        
+                        
+                        <div class="buttons">
+
+                          <button class="button-icon">
+                            <i class="fa-solid fa-pencil"></i>
+                          </button>  
+
+                            <button class="button-icon danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </div>
+
+                        </td> 
+
+                    </tr>   `  -->
+                    <!-- este codigo comentado es el table body que se fue a tableBodyHTML.innerHTML += el archivo java -->
                 </tbody>
 
             </table>
