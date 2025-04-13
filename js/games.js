@@ -78,3 +78,6 @@ tableBodyHTML.innerHTML += `<tr>
                           
 })
 
+function ordenarPorPrecioAscendente() {
+  
+}

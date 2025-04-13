@@ -39,40 +39,70 @@
     <div class="row">
 
         <div class="col-12 col-lg-4">
-        <h2>FORMULARIO</h2><br> <br> <br>
+        <h2>FORMULARIO</h2>
         </div>
 
+
+
+        <!-- segundo div para filtros y tabla -->
         <div class="col-12 col-lg-8">
-            <h2>JUEGOS</h2>
-                <div class="p-3 border border-info-subtle">
-                    <div class="row">
-                        <div class="col">
-                            <label for="name" class="form-label">Buscar</label>
-                            <input  type="text" 
-                                    class="form-control" 
-                                    id="name" 
-                                    placeholder="Nombre del juego" 
-                                    
-                            />
-                        </div>
+
+            <h2>JUEGOS  </h2>
+
+            <div class="p-3 border border-info-subtle">
+
+                <div class="row">
+
+                    <div class="col">
+                        <label for="name" class="form-label">Buscar</label>
+                        <input type="text" class="form-control"
+                        id="name" 
+                        placeholder="nombre del juego"/>
+                        
                     </div>
+                  
+                    <div class="col">
+                        <label for="genre" class="form-label">Genero</label>
+                        <select id="genre" class="form-select">
+                            <option selected disabled=>Selecciona un Genero</option>
+                            <option value="Action">Accion</option>
+                            <option value="Adventure">Aventura</option>
+                            <option value="Board">Tablero</option>
+                            <option value="Sports">Deportes</option>
+
+                        </select>
+
+                    </div>
+                       
+
+                        <div class="col">
+                            
+                            <label for="gener" class="form-label">Ordenar</label>
+                            <div>
+                            <button class="btn btn-sm btn-primary" title="Ordenar precio ascendente">
+                            <i class="fa-solid fa-caret-up"></i>
+                             </button>
+                             <button class="btn btn-sm btn-primary" title="Ordenar precio descendente">
+                            <i class="fa-solid fa-caret-down"></i>
+                             </button>
+                             </div>
+                      
+                          </div>
+
                 </div>
-            <!-- <h2>TABLA DE JUEGOS Y FILTROS</h2> -->
-            <div class="col">
-                <label for="genre" class="form-label">Ordenar</label>
-                <div>
-                    <button class="btn btn-sm btn-primary" title="Ordenar precio ascendente">
-                        <i class="fa-solid fa-caret-up"></i>
-                    </button>
-                    <button class="btn btn-sm btn-primary" title="Ordenar precio descendente">
-                        <i class="fa-solid fa-caret-down"></i>
-                    </button>
-                </div>
+
+
+
             </div>
-     </div>
-  <h2>PROBANDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO</h2>
-<br> <br>
-            <table class="table table-dark table-striped">
+
+            
+
+
+
+
+
+            
+                <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Imagen</th>
@@ -117,7 +147,7 @@
 
             </table>
            
-        
+        </div>
 
           
 
