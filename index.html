@@ -62,13 +62,14 @@
                     </div>
                   
                     <div class="col">
-                        <label for="genre" class="form-label">Genero</label>
-                        <select id="genre" class="form-select">
+                        <label for="genre" class="form-label">Categoria</label>
+                        
+                        <select id="genre" class="form-select" onchange="filtrarPorCategoria(event)">
                             <option selected disabled=>Selecciona un Genero</option>
-                            <option value="Action">Accion</option>
-                            <option value="Adventure">Aventura</option>
-                            <option value="Board">Tablero</option>
-                            <option value="Sports">Deportes</option>
+                            <option value="action">Accion</option>
+                            <option value="adventure">Aventura</option>
+                            <option value="board">Tablero</option>
+                            <option value="sports">Deportes</option>
 
                         </select>
 
@@ -77,12 +78,12 @@
 
                         <div class="col">
                             
-                            <label for="gener" class="form-label">Ordenar</label>
+                            <label for="genre" class="form-label">Ordenar</label>
                             <div>
-                            <button class="btn btn-sm btn-primary" title="Ordenar precio ascendente">
+                            <button onclick=" ordenarPorPrecio(`asc`)" class="btn btn-sm btn-primary" title="Ordenar precio ascendente">
                             <i class="fa-solid fa-caret-up"></i>
                              </button>
-                             <button class="btn btn-sm btn-primary" title="Ordenar precio descendente">
+                             <button onclick=" ordenarPorPrecio(`desc`)" class="btn btn-sm btn-primary" title="Ordenar precio descendente">
                             <i class="fa-solid fa-caret-down"></i>
                              </button>
                              </div>

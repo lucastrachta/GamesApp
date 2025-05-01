@@ -11,7 +11,7 @@ const games = [  {
   id: 1000,
   name: "Super Mario Party™ Jamboree",
   price: 75200,
-  category: "Adventure",
+  category: "Board",
   image:
     "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/49ff5c5e983d4a2a8682588179d496c5_1024",
 },
@@ -46,6 +46,7 @@ const tableBodyHTML = document.getElementById("table-body")
 console.log(tableBodyHTML)
 
 games.forEach((juego) =>  {
+  console.log(juego.name)
 
 tableBodyHTML.innerHTML += `<tr>
    
@@ -73,11 +74,170 @@ tableBodyHTML.innerHTML += `<tr>
 
                             </td> 
 
-                        </tr>   `             
-                   
-                          
-})
+                        </tr>   `      
+                        
+  })
+
+
+  //games.forEach debe estar dentro de funcion ordenar por precio ascendente para que
+// esa funcion sea mas completa y pinte los juegos.procedo a duplicar el codigo DE ARRIBA
 
 function ordenarPorPrecioAscendente() {
+  games.sort((a,b) =>{
+    return a.price - b.price} 
+)
+
+games.forEach((juego) =>  {
+  console.log(juego.name)
+
+tableBodyHTML.innerHTML += `<tr>
+   
+                            <td class="image-cell">   
+                                <img src= " ${juego.image}" alt="">
+                            </td>
+                            <td class="id-cell"> ${juego.id}  </td>
+                            <td class="name-cell"> ${juego.name}</td>
+                            <td class="category-cell"> ${juego.category}</td>
+                            <td class="price-cell"> $ ${juego.price}</td>
+                            <td class="action-cell">
+                            
+                            
+                            <div class="buttons">
+
+                              <button class="button-icon">
+                                <i class="fa-solid fa-pencil"></i>
+                              </button>  
+
+                                <button class="button-icon danger">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </div>
+
+                            </td> 
+
+                        </tr>   `      
+                        
+  })}
   
-}
+  function pintarJuegos(arrayJuegos){
+    tableBodyHTML.innerHTML= ""
+    arrayJuegos.forEach((juego) =>  {
+      console.log(juego.name)
+    
+    tableBodyHTML.innerHTML += `<tr>
+       
+                                <td class="image-cell">   
+                                    <img src= " ${juego.image}" alt="">
+                                </td>
+                                <td class="id-cell"> ${juego.id}  </td>
+                                <td class="name-cell"> ${juego.name}</td>
+                                <td class="category-cell"> ${juego.category}</td>
+                                <td class="price-cell"> $ ${juego.price}</td>
+                                <td class="action-cell">
+                                
+                                
+                                <div class="buttons">
+    
+                                  <button class="button-icon">
+                                    <i class="fa-solid fa-pencil"></i>
+                                  </button>  
+    
+                                    <button class="button-icon danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+    
+                                </div>
+    
+                                </td> 
+    
+                            </tr>   `      
+                             })}
+                             
+// 
+
+
+function ordenarPorPrecio(orden){
+  
+  const juegosOrdenados = games.toSorted((a,b) => orden  === "desc" ? b.price - a.price : a.price - b.price)
+  
+  pintarJuegos(juegosOrdenados)}
+  //////////////////////////////////////////////////////////////////////////
+  // esto de abajo es para ordenar nombres strings lo hago y lo comento luego
+  
+  // const collator = Intl.collator ("es",{sensitivity:"base"})
+  
+  // function ordenarPorPrecioAscendente(){
+    // const juegosAsc=games.toSorted((a,b)=>{
+      //   return collator.compare(a.name , b.name)
+      // } )
+      // pintarJuegos(juegosAsc)
+      // }
+      
+      // function ordenarPorPrecioDescendente(){
+        //   const juegosDesc=games.toSorted((a,b)=>{
+          //     return collator.compare(b.name , a.name)
+          //   } )
+          //   pintarJuegos(juegosDesc)}
+          
+          //ESTAS DE ABAJO SON LAS FUNCIONES MAS IMPORTANTES QUE VAN
+
+          // function ordenarPorPrecioAscendente() {
+          //   const juegosAsc = games.toSorted((a,b) => {
+          //     return a.price - b.price } )
+          // pintarJuegos(juegosAsc)
+          //   }
+          
+          //   function ordenarPorPrecioDescendente() {
+          //     const juegosDesc =games.toSorted((a,b) => {
+          //       return b.price - a.price
+          //     })
+          //     pintarJuegos(juegosDesc)
+          //   }
+
+            
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+            function filtrarPorCategoria(eventito){
+
+            const categoriaSeleccionada = eventito.target.value.toLowerCase()
+
+            const  juegosFiltrados = games.filter((juego) =>{
+
+              console.log(categoriaSeleccionada, juego.category)
+
+             if (juego.category.toLowerCase() === categoriaSeleccionada)
+              {return true}
+             else
+             {return false} 
+            })
+            
+            console.log(juegosFiltrados)  
+            pintarJuegos(juegosFiltrados)
+            }   
+////////////////////////////////////////////////////////////////////////////////////////
+
+            function filtrarPorNombre(){
+              console.log("filtrarPorNombre")
+            }
+
+            const searchHTML = document.querySelector("#name")
+
+            searchHTML.addEventListener("keyup",function(evt){
+              console.log(evt.target.value)
+            })
+
+
+            searchHTML.addEventListener("keyup",function(evt){
+              
+              const nombreJuegoABuscar = evt.target.value.toLowerCase()
+              
+              const juegosFiltradosPorNombre = games.filter(game => {
+
+                const nombreJuego = game.name.toLowerCase()
+                
+                return nombreJuego.includes(nombreJuegoABuscar)
+              })
+              pintarJuegos(juegosFiltradosPorNombre)
+            })
